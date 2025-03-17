@@ -91,22 +91,24 @@
 
         <!-- Main Content Section (Your Actual Site) -->
         <section id="mainContent" class="main-content">
-            <section class="bg-gray-100 font-sans">
+            <section class="font-sans">
 
                 <!-- Navigation -->
-                <nav class="fixed top-0 w-full bg-gray-50 shadow-md z-10">
-                    <div class="container mx-auto px-4 py-3">
+                <nav class="fixed top-0 w-full bg-transparent z-10">
+                    <div class="container mx-auto px-6 py-4">
                         <div class="flex justify-between items-center">
-                            <div class="text-xl font-bold text-gray-800">My Portfolio</div>
-                            <div class="hidden md:flex space-x-6">
-                                <a href="#home" class="nav-link text-gray-600 hover:text-gray-900">Who I am</a>
-                                <a href="#education" class="nav-link text-gray-600 hover:text-gray-900">Education</a>
-                                <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
-                                <a href="#experience" class="nav-link text-gray-600 hover:text-gray-900">Experience</a>
-                                <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                            <div class="text-xl font-bold text-white">My Portfolio</div>
+                            <div class="hidden md:flex bg-gray-50 rounded-full drop-shadow-lg border-[3px] border-white  backdrop-blur-lg space-x-2">
+                                <a href="#home" class="nav-link px-4 py-2 rounded-full bg-gray-50  hover:bg-gray-500 hover:text-gray-50 transition duration-300 uppercase text-sm font-medium tracking-wide">Who I am</a>
+                                <a href="#education" class="nav-link px-4 py-2 rounded-full bg-gray-50  hover:bg-gray-500 hover:text-gray-50 transition duration-300 uppercase text-sm font-medium tracking-wide">Education</a>
+                                <a href="#projects" class="nav-link px-4 py-2 rounded-full bg-gray-50  hover:bg-gray-500 hover:text-gray-50 transition duration-300 uppercase text-sm font-medium tracking-wide">Projects</a>
+                                <a href="#experience" class="nav-link px-4 py-2 rounded-full bg-gray-50  hover:bg-gray-500 hover:text-gray-50 transition duration-300 uppercase text-sm font-medium tracking-wide">Experience</a>
+                                <a href="#contact" class="nav-link px-4 py-2 rounded-full bg-gray-50  hover:bg-gray-500 hover:text-gray-50 transition duration-300 uppercase text-sm font-medium tracking-wide">Contact</a>
+                                
                             </div>
+                            
                             <div class="md:hidden">
-                                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                                <button id="mobile-menu-button" class="text-white focus:outline-none">
                                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                                     </svg>
@@ -114,22 +116,22 @@
                             </div>
                         </div>
                         <!-- Mobile menu, hidden by default -->
-                        <div id="mobile-menu" class="hidden md:hidden mt-4">
+                        <div id="mobile-menu" class="hidden md:hidden mt-4 p-4 rounded-lg bg-white/30 backdrop-blur-md">
                             <div class="flex flex-col space-y-4">
-                                <a href="#home" class="nav-link text-gray-600 hover:text-gray-900">Who I am</a>
-                                <a href="#education" class="nav-link text-gray-600 hover:text-gray-900">Education</a>
-                                <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
-                                <a href="#experience" class="nav-link text-gray-600 hover:text-gray-900">Experience</a>
-                                <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                                <a href="#home" class="nav-link  text-white hover:text-gray-200 transition duration-300 font-medium">Who I am</a>
+                                <a href="#education" class="nav-link  text-white hover:text-gray-200 transition duration-300 font-medium">Education</a>
+                                <a href="#projects" class="nav-link  text-white hover:text-gray-200 transition duration-300 font-medium">Projects</a>
+                                <a href="#experience" class="nav-link  text-white hover:text-gray-200 transition duration-300 font-medium">Experience</a>
+                                <a href="#contact" class="nav-link  text-white hover:text-gray-200 transition duration-300 font-medium">Contact</a>
                             </div>
                         </div>
                     </div>
                 </nav>
 
                 <!-- Banner Section -->
-                <section id="home" class="relative h-screen bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/png');">
-                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-                    <div class="relative container mx-auto px-4 h-full flex flex-col justify-center items-start">
+                <section id="home" class="relative h-screen bg-cover bg-center  bg-[url(https://placehold.co/1200x800/png)]">
+                    
+                    <div class="relative container mx-auto px-4 h-full flex flex-col justify-center items-start backdrop-blur-sm">
                         <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Hi, I'm <span class="text-blue-400">Your Name</span></h1>
                         <p class="text-xl text-white mb-8 max-w-lg">A professional web developer with a passion for creating beautiful and functional websites.</p>
                         <div class="flex space-x-4">
@@ -422,10 +424,10 @@
                             });
                             
                             navLinks.forEach(link => {
-                                link.classList.remove('text-blue-600', 'font-medium');
+                                link.classList.remove('bg-gray-500', 'text-gray-50', 'font-medium');
                                 
                                 if (link.getAttribute('href') === `#${current}`) {
-                                    link.classList.add('text-blue-600', 'font-medium');
+                                    link.classList.add('bg-gray-500', 'text-gray-50', 'font-medium');
                                 }
                             });
                         });
@@ -453,7 +455,7 @@
             }
 
             // Initial site state - Change 'false' to 'true' when your site is ready
-            const SHOW_MAIN_SITE = false;
+            const SHOW_MAIN_SITE = true;
             
             // Apply the initial state when page loads
             document.addEventListener('DOMContentLoaded', function() {
