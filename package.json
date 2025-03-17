@@ -1,0 +1,16 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: No test specifications && exit 1 ",
+    "dev": "npx @tailwindcss/cli -i ./css/input.css -o ./css/style.css --watch"
+  },
+  "author": "Gayan Dhanushka",
+  "description": "Developed to show my work experience ",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.14",
+    "tailwindcss": "^4.0.14"
+  }
+}
