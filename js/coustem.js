@@ -151,3 +151,74 @@ document.addEventListener("DOMContentLoaded", () => {
   vignette.style.background =
     "radial-gradient(at center, transparent 80%, black), linear-gradient(to top, rgba(0, 0, 0, 0.3) 70%, transparent)";
 });
+document.addEventListener("DOMContentLoaded", function () {
+  // Smooth scrolling for navigation links
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Get the target section
+      const targetId = this.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        // Add offset for fixed header
+        const navHeight = document.querySelector("nav").offsetHeight;
+        const targetPosition =
+          targetSection.getBoundingClientRect().top +
+          window.pageYOffset -
+          navHeight;
+
+        // Smooth scroll to target
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
+
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenu.classList.contains("block")) {
+          mobileMenu.classList.remove("block");
+          mobileMenu.classList.add("hidden");
+        }
+      }
+    });
+  });
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileMenuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // Highlight active section on scroll
+  window.addEventListener("scroll", function () {
+    let current = "";
+    const sections = document.querySelectorAll("section");
+    const navHeight = document.querySelector("nav").offsetHeight;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - navHeight - 10;
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        window.pageYOffset >= sectionTop &&
+        window.pageYOffset < sectionTop + sectionHeight
+      ) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("bg-gray-500", "text-gray-50", "font-medium");
+
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("bg-gray-500", "text-gray-50", "font-medium");
+      }
+    });
+  });
+});
